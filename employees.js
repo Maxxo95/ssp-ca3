@@ -1,40 +1,22 @@
-"use strict";
-import users from './employees.json' assert {type: 'json'};
+const fs = require('fs');
+const express =require('express');
 
-
-
-
-
-CallUsers(users.employees)
-function CallUsers(users1){
-    users1.forEach(element => {
-        
-    
-        const{image,jobTitleName,preferredFullName,emailAddress}= element;
-          
-       
-        const movieEl = document.createElement('div');
-        movieEl.classList.add('movie');
-        movieEl.innerHTML= ` 
-        <img src="${image}" ">
-        <div class="movie-info">
-            <h3>${preferredFullName}</h3>
-            <span class="actors">${jobTitleName}</span>
-        </div>
-        <div class="overview">
-        <h3> Contact </h3>
-        ${emailAddress}
-        </div>   ` 
-        main.appendChild(movieEl);
-    
+const app = express();
+const port = 3002;
+const html= fs.readFileSync('./index.html','utf-8'); //HTML File reading
+ let employees= JSON.parse(fs.readFileSync('./employees.json','utf-8')) ; // Getting json data to JavaScript obejct
+ let emplisthtml=fs.readFileSync('./employ.html','utf-8'); //reading employ html 
+ let employeesHTMLarray=employees.map((emp) => {      //putting json data to html code 
+ let output=  emplisthtml.replace('{{%image%}}',emp.image);
+ output= output.replace('{{%preferredFullName%}}',emp.preferredFullName);
+ output= output.replace('{{%preferredFullName1%}}',emp.preferredFullName);
+ output=  output.replace('{{%jobTitleName%}}',emp.jobTitleName);
+ output=  output.replace('{{%emailAddress%}}',emp.emailAddress);
+  return output; })
+  
  
-    });
 
-}
-
-document.getElementById("myButton").onclick = function(){
-
-    var myname= document.getElementById("delete").value;
-    console.log(myname);
-}
-
+app.listen(port, function () {
+  console.log("Server is started at port " + port);
+  
+});
