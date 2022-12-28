@@ -32,19 +32,31 @@ app.get("/", function (req, res) {
   res.end(productResponseHtml);
   
 });
-
+app.post("/", function(req,res){ 
 let addingname= (req.body.NAME);     //adding a new employye profile
 let addingimage=(req.body.image_link);
 let addingjob= (req.body.Job);
 let addingemail=(req.body.email);
 
-if((addingemail!="")&(addingname!="")&(addingjob!="")&(addingimage!="")){    //if all them are not equals empty = create new employee
-  {
+if((addingemail!=="")&&(addingname!=="")&&(addingjob!=="")&&(addingimage!=="")){
+  let mergedadding={
     "jobTitleName": addingjob,
     "preferredFullName": addingname,
     "image": addingimage,
     "emailAddress":addingemail
   }
+  let try2 = toString("try");
+  if(typeof mergedadding.jobTitleName == typeof(try2)){
+  let beforeaddingemp= JSON.parse(fs.readFileSync('./employees.json','utf-8')) ;
+  beforeaddingemp.push(mergedadding);
+  let stringdata =JSON.stringify(beforeaddingemp);
+   fs.writeFileSync('./employees.json',stringdata);
+  }}
+  
+  addingemail="";
+  addingimage="";
+  addingjob="";
+  addingname="";
  
   let delete_name= (req.body.delete);     // delete employee 
  if(delete_name!==""&&typeof(delete_name!=="undefined")){  
