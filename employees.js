@@ -66,4 +66,4 @@ if((addingemail!=="")&&(addingname!=="")&&(addingjob!=="")&&(addingimage!=="")){
   }
 
   res.redirect('/');
-}
+})
