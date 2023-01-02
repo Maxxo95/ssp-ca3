@@ -5,32 +5,198 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>employees</title>
-   
+<style>
+  label{
+    font-size: 20px;
+    color: #fff;
+  }
+
+#button_add{
+width: 10%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+  }
+
+.add h3{
+  text-align: center;
+    color: aquamarine;
+    font-size: 2.4rem;
+}
+.ab{
+  margin-bottom: 1%;
+    margin-top: 2%;
+}
+ .abc{
+  width: 22%;
+    float: left;
+    margin-left: 26%;
+    margin-bottom: 2%;
+ }
+ .abcd{
+  width: 22%;
+    float: right;
+    margin-right: 26%;
+    margin-bottom: 2%;
+ }
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.button1{
+  width: 15%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+    font-size: 17px;
+    margin-bottom: 2%;
+    margin-top: 1%;
+}
+.container{
+  width: 35%;
+    margin: 0 auto;
+    margin-top: 1%;
+}
+@media screen and (max-width: 768px) {   
+
+.emp-list {
+color: #fff;
+border: #cee2fa 1.5px solid;
+margin: 0 auto;
+margin-bottom: 1%;
+width: 45% !important;
+margin-left: 1rem !important;
+}
+.baslik{
+  background-color: #2b3157;
+text-align: center;
+color: aquamarine;
+font-size: 37px !important;
+}
+.emp-specs {
+    text-align: left;
+    margin: 0 !important;
+    font-size: 18px !important;
+} 
+.emp-specs p{
+  font-size: 14px !important;
+  text-align: left !important;
+}
+.container {
+    width: 69% !important;
+    margin: 0 auto;
+    margin-top: 1%;
+    text-align: center !important;
+}
+.button1 {
+    width: 44% !important;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+    font-size: 17px;
+    margin-bottom: 2%;
+    margin-top: 1%;
+}
+.abc{
+  
+    width: 60% !important ;
+    text-align: center !important;
+    margin-left: 21% !important;
+}
+.abcd{
+  width: 60% !important ;
+    text-align: center !important;
+    margin-left: 21% !important;
+    float: left !important;
+}
+#button_add {
+    width: 30% !important;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 auto;
+    margin-top: 33%;
+    text-align: center !important;
+    display: block !important;
+}
+}
+</style>   
     
 
 </head>
 <body>
-  <header style="background-color: rgb(67, 85, 102); text-align: center; color: aquamarine; font-size: 50px;" > EMPLOYEES.COM</header>
+  <header style="background-color: #2b3157; text-align: center; color: aquamarine; font-size: 50px;" > EMPLOYEES.COM</header>
+  <div class="container">
+    <form action="/" method="post"> 
+      <label for="Search">Please enter the name of the person you want to Search. (Attention capital letters)</label>
+      <input type="text" name="Search" id="Search">
+      <button  class="button1" type="submit">Search</button>
+    </form>
+  </div>
 
-  <div>
+  <div class="container">
     <form action="/" method="post">
       <label for="delete">Please enter the name of the person you want to delete. (Attention capital letters)</label>
       <input type="text" name="delete" id="delete">
-      <button onClick="window.location.href=window.location.href" type="submit">Delete</button>
+      <button onClick="window.location.href=window.location.href" type="submit" class="button1" >Delete</button>
     </form>
   </div>
-<div style="background-color: white; color: rgb(156, 125, 85);">
-  <p> Add  an employee</p>
+<div class="add">
+  <h3> Add  an employee</h3>
   <form action="/" method="POST">
+  <div class="ab">
+
+
+ <div class="abc">
   <label for="NAME"> Name:</label>
+  <br>
   <input type="text" name="NAME" id="NAME">
+  <br>
   <label for="Job"> Job:</label>
+  <br>
   <input type="text" name="Job" id="Job">
+  <br>
+ </div>
+<div class="abcd">
   <label for="image_link"> Image Link:</label>
+  <br>
   <input type="text" name="image_link" id="image_link">
+  <br>
   <label for="email"> E-mail:</label>
+<br>
   <input type="text" name="email" id="email">
-  <button  type="submit">Add</button>
+
+</div>
+
+
+
+<button  type="submit" id="button_add">Add</button>
+  </div>
+ 
+  
   </form>
   
 </div>
