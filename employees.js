@@ -9,9 +9,9 @@ app.use(express.urlencoded({ extended: true }));
 
  const html= fs.readFileSync('./index.html','utf-8'); //HTML File reading
  let employees= JSON.parse(fs.readFileSync('./employees.json','utf-8')) ; // Getting json data to JavaScript obejct
- let emplisthtml=fs.readFileSync('./employ.html','utf-8'); //reading employ html 
+ let emplisthtml=fs.readFileSync('./employees.html','utf-8'); //reading employ html 
  let employeesHTMLarray=employees.map((emp) => {      //putting json data to html code 
- let output=  emplisthtml.replace('{{%image%}}',emp.image); // replace defaults
+ let output=  emplisthtml.replace('{{%image%}}',emp.image);
  output= output.replace('{{%preferredFullName%}}',emp.preferredFullName);
  output= output.replace('{{%preferredFullName1%}}',emp.preferredFullName);
  output=  output.replace('{{%jobTitleName%}}',emp.jobTitleName);
@@ -51,7 +51,7 @@ if(searchingusername!==""){
  
 }
 
-let addingname= (req.body.NAME);    //adding a new employye profile
+let addingname= (req.body.NAME);
 let addingimage=(req.body.image_link);
 let addingjob= (req.body.Job);
 let addingemail=(req.body.email);
